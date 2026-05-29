@@ -1,92 +1,211 @@
-# AI-Based Travel Planner using Knowledge Bases
+# AI-Based Travel Planner using Multiple Knowledge Bases
 
----
+# Objectives
 
-## Objectives
-
-* Integrate multiple Knowledge Bases for travel planning.
+* Reuse existing Knowledge Bases for travel planning.
+* Integrate information from multiple domains.
 * Understand user preferences and interests.
 * Generate personalized travel recommendations.
-* Estimate travel expenses.
-* Select the best travel plan within the user's budget.
+* Perform cost assessment and budget validation.
+* Suggest the optimal travel plan.
 
----
 
-## High-Level Architecture
+
+# High-Level Architecture
 
 ```text
-User Preferences
-      │
-      ▼
-Preference Analyzer
-      │
-      ▼
-Knowledge Integration Layer
- ┌─────────┬─────────┬─────────┐
- │Tourism  │ Food KB │ Hotel KB│
- │   KB    │         │         │
- └─────────┴─────────┴─────────┘
-      │
-      ▼
-Recommendation Engine
-      │
-      ▼
-Cost Assessment Module
-      │
-      ▼
-Optimal Travel Plan
+                    User Preferences
+      (Budget, Interests, Food, Duration)
+                               │
+                               ▼
+                    Preference Analyzer
+                               │
+                               ▼
+                 Knowledge Integration Layer
+ ┌─────────────────────────────────────────────────┐
+ │                                                 │
+ │ Tourism KB      Hotel KB      Food KB          │
+ │ Attractions     Hotels        Restaurants      │
+ │ Activities      Prices        Cuisine          │
+ │                                                 │
+ │ Weather KB      Location KB                    │
+ │ Climate         Maps & Distance                │
+ └─────────────────────────────────────────────────┘
+                               │
+                               ▼
+                    Unified Knowledge Graph
+                               │
+                               ▼
+                    Recommendation Engine
+                               │
+                               ▼
+                     Cost Assessment Module
+                               │
+                               ▼
+                     Optimal Travel Plan
+```
+
+
+
+# Existing Knowledge Bases Reused
+
+## Tourism Knowledge Base
+
+Contains:
+
+* Tourist attractions
+* Historical monuments
+* Adventure activities
+* Cultural locations
+
+Example:
+
+```text
+(Eiffel Tower, locatedIn, Paris)
+(Amber Fort, locatedIn, Jaipur)
+```
+
+
+
+## Hotel Knowledge Base
+
+Contains:
+
+* Hotel information
+* Room prices
+* Ratings
+* Facilities
+
+Example:
+
+```text
+(Hotel Paradise, locatedIn, Goa)
+(Hotel Paradise, costPerNight, 3500)
+```
+## Food Knowledge Base
+
+Contains:
+
+* Restaurants
+* Local cuisines
+* Dietary information
+
+Example:
+
+```text
+(Goa, famousFor, Seafood)
+(Jaipur, famousFor, Dal Baati)
 ```
 
 ---
 
-## Knowledge Bases Used
+## Weather Knowledge Base
 
-### Tourism Knowledge Base
+Contains:
 
-Stores information about:
+* Seasonal information
+* Temperature
+* Climate conditions
 
-* Cities
-* Tourist attractions
-* Activities
-* Historical sites
-
-### Food Knowledge Base
-
-Stores information about:
-
-* Restaurants
-* Local cuisines
-* Dietary preferences
-* Food ratings
-
-### Hotel Knowledge Base
-
-Stores information about:
-
-* Hotels
-* Accommodation costs
-* Ratings
-* Facilities
-
----
-
-## Working Process
-
-1. User enters destination preferences, interests, budget, and dietary requirements.
-2. The Preference Analyzer extracts important requirements.
-3. The Knowledge Integration Layer gathers information from multiple Knowledge Bases.
-4. The Recommendation Engine identifies suitable destinations, attractions, hotels, and restaurants.
-5. The Cost Assessment Module calculates the total estimated cost.
-6. The system selects the best travel plan satisfying user preferences and budget constraints.
-
----
-
-## Cost Assessment
-
-Total trip cost is calculated as:
+Example:
 
 ```text
-Total Cost = Travel Cost + Hotel Cost + Food Cost + Local Transport + Entry Fees
+(Manali, climate, Cold)
+(Goa, climate, Tropical)
+```
+
+## Location Knowledge Base
+
+Contains:
+
+* Distances
+* Routes
+* Geographic information
+
+Example:
+
+```text
+(Delhi, connectedTo, Jaipur)
+```
+
+---
+
+# Knowledge Graph Representation
+
+The integrated information is represented as a Knowledge Graph.
+
+### Entities
+
+```text
+User
+City
+TouristPlace
+Hotel
+Restaurant
+Activity
+```
+
+### Relationships
+
+```text
+LIKES
+LOCATED_IN
+HAS_ACTIVITY
+HAS_HOTEL
+HAS_FOOD
+CONNECTED_TO
+```
+
+Example:
+
+```text
+(User)
+   │
+LIKES
+   │
+(History)
+   │
+HAS_ACTIVITY
+   │
+(Amber Fort)
+   │
+LOCATED_IN
+   │
+(Jaipur)
+```
+
+# Working Process
+
+1. User enters preferences such as:
+
+   * Budget
+   * Destination type
+   * Food preference
+   * Travel duration
+
+2. Preference Analyzer extracts user requirements.
+
+3. Knowledge Integration Layer retrieves information from existing Knowledge Bases.
+
+4. Retrieved information is combined into a unified Knowledge Graph.
+
+5. Recommendation Engine identifies suitable destinations, attractions, hotels, and restaurants.
+
+6. Cost Assessment Module estimates the total travel expense.
+
+7. The system selects the best travel plan that satisfies user preferences and budget constraints.
+
+# Cost Assessment
+
+The total trip cost is calculated as:
+
+```text
+Total Cost =
+Travel Cost +
+Hotel Cost +
+Food Cost +
+Local Transport +
+Entry Fees
 ```
 
 Constraint:
@@ -95,40 +214,31 @@ Constraint:
 Total Cost ≤ User Budget
 ```
 
----
-
-## Technologies Used
-
-| Component                | Technology      |
-| ------------------------ | --------------- |
-| Programming Language     | Python          |
-| Knowledge Representation | Knowledge Graph |
-| Ontology Tool            | Protégé         |
-| Graph Database           | Neo4j           |
-| Query Language           | Cypher/SPARQL   |
-
----
-
-## Sample Output
+# Sample Output
 
 ```text
-User Preferences:
-Destination Type = Historical
-Budget = ₹50,000
-Food Preference = Vegetarian
+User Preferences
 
-Recommended Plan:
+Interest      : Historical Tourism
+Food          : Vegetarian
+Budget        : ₹50,000
+Duration      : 4 Days
 
-Destination: Jaipur
+Recommended Travel Plan
+
+Destination:
+Jaipur
+
 Tourist Places:
-- Amber Fort
-- Hawa Mahal
+• Amber Fort
+• Hawa Mahal
+• City Palace
 
 Hotel:
-- Heritage Residency
+Heritage Residency
 
 Food:
-- Dal Baati Churma
+Dal Baati Churma
 
 Estimated Cost:
 ₹46,500
@@ -139,6 +249,25 @@ Within Budget
 
 ---
 
-## Conclusion
+# Technologies Used
 
-The proposed AI-Based Travel Planner combines multiple Knowledge Bases to generate intelligent travel recommendations. By integrating tourism, hotel, and food knowledge with cost assessment, the system produces personalized and budget-friendly travel plans.
+| Component                | Technology      |
+| ------------------------ | --------------- |
+| Programming Language     | Python          |
+| Knowledge Representation | Knowledge Graph |
+| Ontology Tool            | Protégé         |
+| Graph Database           | Neo4j           |
+| Query Language           | Cypher / SPARQL |
+
+
+# Advantages
+
+* Reuses existing knowledge instead of creating data from scratch.
+* Integrates multiple domains into a single system.
+* Provides personalized recommendations.
+* Performs efficient travel planning.
+* Supports budget-aware decision making.
+
+# Conclusion
+
+The proposed AI-Based Travel Planner combines and reuses information from multiple Knowledge Bases including tourism, hotel, food, weather, and location sources. By integrating these sources into a unified Knowledge Graph and performing cost assessment, the system generates personalized and budget-friendly travel plans that best satisfy user preferences.
