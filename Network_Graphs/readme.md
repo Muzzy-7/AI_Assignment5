@@ -3,7 +3,7 @@
 A Knowledge Graph (KG) is a structured representation of information where entities (nodes) are connected through meaningful relationships (edges). Information is stored as triples in the form:
 Subject → Predicate → Object
 
-Example: (Paris, locatedIn, France) shows the relationship between a city and a country
+Example: (Hyderabad, locatedIn, Telengana) shows the relationship between a city and a country
 
 Knowledge Graphs help machines understand relationships between data and are widely used in search engines, recommendation systems, chatbots, and AI applications.
 
