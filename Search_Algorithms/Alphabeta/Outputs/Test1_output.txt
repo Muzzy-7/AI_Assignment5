@@ -1,0 +1,10 @@
+# Test 1
+Tree before Alpha-Beta:
+None 
+None None 
+4 5 2 9 
+
+Tree after Alpha-Beta ('None'= branches were pruned):
+4 
+4 2 
+4 5 2 9 

@@ -1,0 +1,10 @@
+Enter the depth for your Alpha-Beta tree: 3
+Enter the branching factor: 2
+Enter value for leaf node: 3
+Enter value for leaf node: 5
+Enter value for leaf node: 6
+Enter value for leaf node: 9
+Enter value for leaf node: 1
+Enter value for leaf node: 2
+Enter value for leaf node: 7
+Enter value for leaf node: 4

@@ -1,0 +1,10 @@
+#Test1
+Tree before Minimax:
+None 
+None None 
+4 5 2 9 
+
+Tree after Minimax (Optimal value at root):
+4 
+4 2 
+4 5 2 9 

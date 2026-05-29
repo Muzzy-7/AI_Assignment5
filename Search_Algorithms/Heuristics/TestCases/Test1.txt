@@ -1,0 +1,11 @@
+Enter the FULL depth of the tree: 3
+Enter the branching factor: 2
+Enter the Depth Limit for the Heuristic cutoff: 2
+Enter value for leaf node: 10 
+Enter value for leaf node: 20
+Enter value for leaf node: 30
+Enter value for leaf node: 40
+Enter value for leaf node: 50
+Enter value for leaf node: 60
+Enter value for leaf node: 70
+Enter value for leaf node: 80

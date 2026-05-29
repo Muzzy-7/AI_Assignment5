@@ -2,14 +2,14 @@ from tree import build_tree, assign_tree, print_tree
 
 def heuristic_eval(node):
     """A mock heuristic function for internal nodes cut off by depth limit."""
-    return 0 # In a real game, this evaluates board position. Here we just return 0.
+    return 0 
 
 def heuristic_alpha_beta(node, current_depth, target_depth, if_max, alpha=float('-inf'), beta=float('inf')):
-    # 1. If we reach a leaf node
+    #  If we reach a leaf node
     if not node.children:
         return node.data
     
-    # 2. If we reach the depth cutoff, return the heuristic value
+    # If we reach the depth cutoff, return the heuristic value
     if current_depth == target_depth:
         node.data = heuristic_eval(node)
         return node.data

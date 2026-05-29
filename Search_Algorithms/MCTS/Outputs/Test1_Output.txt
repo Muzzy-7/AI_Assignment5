@@ -1,0 +1,9 @@
+Tree before MCTS:
+None 
+None None 
+100 90 10 0 
+
+Tree after MCTS (Internal nodes = average values):
+98.8 
+99.8 0.0 
+100 90 10 0 

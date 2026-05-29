@@ -39,5 +39,5 @@ if __name__ == "__main__":
 
     alpha_beta(root, True) 
 
-    print("\nTree after Alpha-Beta (Notice 'None' values where branches were pruned):")
+    print("\nTree after Alpha-Beta ('None'= branches were pruned):")
     print_tree(root)

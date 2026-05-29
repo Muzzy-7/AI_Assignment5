@@ -9,9 +9,8 @@ def select_promising_node(node):
     
     for child in node.children:
         if child.visits == 0:
-            return child # Always explore unvisited children first
+            return child
             
-        # UCB1 formula: (exploitation) + (exploration)
         exploitation = child.score / child.visits
         exploration = math.sqrt(2 * math.log(node.visits) / child.visits)
         ucb_value = exploitation + exploration
@@ -27,7 +26,7 @@ def simulate_random_playout(node):
     current = node
     while current.children:
         current = random.choice(current.children)
-    return current.data # Return the leaf node's value
+    return current.data 
 
 def backpropagate(path, result):
     """Updates visits and scores for all nodes in the path."""
@@ -57,10 +56,8 @@ def mcts(root, iterations):
         # 4. Backpropagation
         backpropagate(path, leaf_value)
         
-    # Assign the best expected values to the internal nodes for display
     def assign_mcts_values(node):
         if node.children:
-            # The value is the average expected score found via MCTS
             node.data = round(node.score / node.visits, 2) if node.visits > 0 else None
             for child in node.children:
                 assign_mcts_values(child)
@@ -81,5 +78,5 @@ if __name__ == "__main__":
 
     mcts(root, iterations) 
 
-    print("\nTree after MCTS (Internal nodes show expected average values):")
+    print("\nTree after MCTS (Internal nodes = average values):")
     print_tree(root)

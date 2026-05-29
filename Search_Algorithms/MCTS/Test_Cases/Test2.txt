@@ -1,0 +1,12 @@
+Enter the depth for your MCTS tree: 2
+Enter the branching factor: 3
+Enter number of MCTS iterations (e.g., 100): 1000 
+Enter value for leaf node: 50
+Enter value for leaf node: 50
+Enter value for leaf node: 50
+Enter value for leaf node: 10
+Enter value for leaf node: 10
+Enter value for leaf node: 10
+Enter value for leaf node: 0
+Enter value for leaf node: 0
+Enter value for leaf node: 100
