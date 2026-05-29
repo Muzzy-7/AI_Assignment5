@@ -1,5 +1,11 @@
 # AI-Based Travel Planner using Multiple Knowledge Bases
 
+## Overview
+
+This project proposes an AI-Based Travel Planner that reuses information from multiple existing Knowledge Bases (KBs) to generate personalized travel recommendations. The system integrates tourism, hotel, food, and weather knowledge sources into a unified Knowledge Graph and recommends the best travel plan based on user preferences and budget constraints.
+
+---
+
 # Objectives
 
 * Reuse existing Knowledge Bases for travel planning.
@@ -9,7 +15,7 @@
 * Perform cost assessment and budget validation.
 * Suggest the optimal travel plan.
 
-
+---
 
 # High-Level Architecture
 
@@ -45,7 +51,7 @@
                      Optimal Travel Plan
 ```
 
-
+---
 
 # Existing Knowledge Bases Reused
 
@@ -65,7 +71,7 @@ Example:
 (Amber Fort, locatedIn, Jaipur)
 ```
 
-
+---
 
 ## Hotel Knowledge Base
 
@@ -82,6 +88,9 @@ Example:
 (Hotel Paradise, locatedIn, Goa)
 (Hotel Paradise, costPerNight, 3500)
 ```
+
+---
+
 ## Food Knowledge Base
 
 Contains:
@@ -113,6 +122,8 @@ Example:
 (Manali, climate, Cold)
 (Goa, climate, Tropical)
 ```
+
+---
 
 ## Location Knowledge Base
 
@@ -174,6 +185,8 @@ LOCATED_IN
 (Jaipur)
 ```
 
+---
+
 # Working Process
 
 1. User enters preferences such as:
@@ -195,6 +208,8 @@ LOCATED_IN
 
 7. The system selects the best travel plan that satisfies user preferences and budget constraints.
 
+---
+
 # Cost Assessment
 
 The total trip cost is calculated as:
@@ -213,6 +228,8 @@ Constraint:
 ```text
 Total Cost ≤ User Budget
 ```
+
+---
 
 # Sample Output
 
@@ -259,6 +276,7 @@ Within Budget
 | Graph Database           | Neo4j           |
 | Query Language           | Cypher / SPARQL |
 
+---
 
 # Advantages
 
@@ -267,6 +285,8 @@ Within Budget
 * Provides personalized recommendations.
 * Performs efficient travel planning.
 * Supports budget-aware decision making.
+
+---
 
 # Conclusion
 

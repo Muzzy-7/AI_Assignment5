@@ -1,7 +1,10 @@
-from pgmpy.models import BayesianNetwork
+# 1. Update the import here:
+from pgmpy.models import DiscreteBayesianNetwork
 from pgmpy.factors.discrete import TabularCPD
 from pgmpy.inference import VariableElimination
-model = BayesianNetwork([
+
+# 2. Update the class name here:
+model = DiscreteBayesianNetwork([
     ('Burglar', 'Alarm'),
     ('Earthquake', 'Alarm'),
     ('Alarm', 'JohnCalls'),
